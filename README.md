@@ -39,6 +39,7 @@ Detector: zone-wise LightGBM residual detector
 ## Dataset
 
 Raw data is not included.
+Only aggregated experiment metrics are included. Raw PV data, generated attack CSVs, and row-level predictions are not included.
 
 The provided dataset was organized with four PV site/capacity groups:
 
