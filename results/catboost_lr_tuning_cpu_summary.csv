@@ -1,0 +1,6 @@
+name,depth,learning_rate,task_type,devices,test_r2,test_mae_pct,test_rmse_pct,out_dir
+cat_depth8_lr_0p03,8,0.03,CPU,0,0.9708,2.013,3.816,./model_output_catboost_lr_only_cpu/cat_depth8_lr_0p03
+cat_depth8_lr_0p02,8,0.02,CPU,0,0.971,2.016,3.805,./model_output_catboost_lr_only_cpu/cat_depth8_lr_0p02
+cat_depth8_lr_0p01,8,0.01,CPU,0,0.971,2.017,3.805,./model_output_catboost_lr_only_cpu/cat_depth8_lr_0p01
+cat_depth8_lr_0p05,8,0.05,CPU,0,0.9708,2.017,3.818,./model_output_catboost_lr_only_cpu/cat_depth8_lr_0p05
+cat_depth8_lr_0p07,8,0.07,CPU,0,0.9705,2.039,3.835,./model_output_catboost_lr_only_cpu/cat_depth8_lr_0p07

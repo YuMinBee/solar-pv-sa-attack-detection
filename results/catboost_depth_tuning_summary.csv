@@ -1,0 +1,7 @@
+name,depth,test_r2,test_mae_pct,test_rmse_pct,out_dir
+cat_depth_7,7,0.9709,2.009,3.809,./model_output_catboost_depth_only/cat_depth_7
+cat_depth_8,8,0.9708,2.013,3.816,./model_output_catboost_depth_only/cat_depth_8
+cat_depth_10,10,0.9708,2.023,3.819,./model_output_catboost_depth_only/cat_depth_10
+cat_depth_9,9,0.9709,2.027,3.809,./model_output_catboost_depth_only/cat_depth_9
+cat_depth_6,6,0.9708,2.044,3.817,./model_output_catboost_depth_only/cat_depth_6
+cat_depth_4,4,0.9705,2.051,3.837,./model_output_catboost_depth_only/cat_depth_4

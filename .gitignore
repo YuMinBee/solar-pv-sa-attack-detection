@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+conda_env*/
+
+# Local data and generated artifacts
+dataset_clean/
+generated_attack_data/
+feature_cache*/
+model_output*/
+detector_model*/
+paper_cnn_lstm_outputs*/
+
+# Large model binaries
+*.cbm
+*.pkl
+*.joblib
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+
+# OS/editor
+.DS_Store
+.vscode/
