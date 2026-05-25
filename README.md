@@ -8,6 +8,24 @@ This repository contains my experiment work for detecting scaling attacks in sol
 논문 CNN-LSTM baseline을 재현하고, CatBoost와 LightGBM Tweedie 기반 forecaster, residual 기반 detector, GBM-CatBoost 앙상블을 비교했다.
 최종 모델은 CatBoost depth7 forecaster와 zone-wise LightGBM residual detector 조합이다.
 
+## 데이터 특성과 모델 선택 이유
+
+PV 발전 데이터는 시간대, 계절, 일사 조건, 설비 규모에 따라 정상 발전 패턴의 변동이 크다.
+스케일링 공격은 원본 값에서 항상 뚜렷한 이상치로 보이기보다, 정상적으로 기대되는 발전량 대비 미세한 비율 변화나 잔차 변화로 나타날 수 있다.
+그래서 원본 값을 바로 분류하는 방식보다 먼저 정상 발전량을 예측하고, 실제값과 예측값의 차이를 residual feature로 만들어 탐지하는 구조를 선택했다.
+
+CatBoost는 이런 tabular feature에서 비선형 관계와 site별 편차를 안정적으로 다루기 좋았고, depth7은 depth8보다 복잡도를 줄이면서 F1/FPR 균형이 더 좋았다.
+zone-wise LightGBM detector는 발전량 구간과 운영 상태별 residual 패턴 차이를 나눠 처리해 오탐을 낮추는 데 적합했다.
+
+## Dataset Characteristics and Model Choice
+
+PV generation data varies strongly by time of day, season, irradiance conditions, and system scale.
+Scaling attacks may not always appear as obvious raw-value anomalies; they can be more visible as subtle deviations from expected generation.
+For that reason, this project uses a two-stage approach: forecast normal PV generation first, then detect attacks from residual features between actual and predicted values.
+
+CatBoost was suitable for handling nonlinear tabular patterns and site-to-site variation, while depth7 gave a better performance-complexity balance than depth8.
+The zone-wise LightGBM residual detector was selected to model residual behavior across operating regimes and reduce false positives.
+
 ## Scope
 
 The dataset was provided externally.
