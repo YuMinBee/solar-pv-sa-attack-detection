@@ -2,6 +2,12 @@
 
 This repository contains my experiment work for detecting scaling attacks in solar photovoltaic generation data.
 
+## 프로젝트 요약
+
+이 저장소는 태양광 PV 발전 데이터에서 스케일링 공격(SA)을 탐지하기 위한 실험 결과와 재현용 스크립트를 정리한 저장소다.
+논문 CNN-LSTM baseline을 재현하고, CatBoost와 LightGBM Tweedie 기반 forecaster, residual 기반 detector, GBM-CatBoost 앙상블을 비교했다.
+최종 모델은 CatBoost depth7 forecaster와 zone-wise LightGBM residual detector 조합이다.
+
 ## Scope
 
 The dataset was provided externally.
@@ -47,7 +53,7 @@ CatBoost depth7 with the zone-wise LightGBM residual detector was selected becau
 - The within-site 6:2:2 validation showed strong operational performance on future periods from known PV sites.
 - Leave-one-site-out validation remained reasonable, so the selected model also had a stricter generalization check.
 
-### Korean Summary
+### 한국어 요약
 
 CatBoost depth7과 zone-wise LightGBM residual detector 조합은 F1, FPR, 구조 단순성의 균형이 가장 좋아 최종 모델로 선정했다.
 
