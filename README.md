@@ -36,6 +36,28 @@ l2_leaf_reg = 3.0
 Detector: zone-wise LightGBM residual detector
 ```
 
+## Model Selection Rationale
+
+CatBoost depth7 with the zone-wise LightGBM residual detector was selected because it gave the best balance between detection performance, false-positive control, and model simplicity.
+
+- It outperformed the reproduced CNN-LSTM baseline by a wide margin across SA 5%, SA 8%, and SA 10%.
+- Compared with tuned LightGBM Tweedie, CatBoost depth7 achieved higher F1 and lower false-positive rates in the fixed comparison.
+- Reducing CatBoost from depth8 to depth7 improved F1 across all attack strengths while keeping the model compact.
+- GBM-CatBoost weighted ensembles did not improve the final metrics, so the simpler CatBoost-only forecaster was preferred.
+- The within-site 6:2:2 validation showed strong operational performance on future periods from known PV sites.
+- Leave-one-site-out validation remained reasonable, so the selected model also had a stricter generalization check.
+
+### Korean Summary
+
+CatBoost depth7과 zone-wise LightGBM residual detector 조합은 F1, FPR, 구조 단순성의 균형이 가장 좋아 최종 모델로 선정했다.
+
+- CNN-LSTM baseline보다 모든 공격 강도에서 탐지 성능이 크게 높았다.
+- tuned LightGBM Tweedie보다 고정 비교에서 F1이 높고 FPR이 낮았다.
+- CatBoost depth8보다 depth7이 SA 5%, SA 8%, SA 10% 전체에서 F1을 개선했다.
+- GBM-CatBoost 앙상블은 추가 성능 향상이 없어 단순한 CatBoost 단독 forecaster를 선택했다.
+- within-site 6:2:2 검증에서 운영 환경에 가까운 미래 구간 탐지 성능이 안정적이었다.
+- leave-one-site-out 검증에서도 성능이 유지되어 unseen PV site 일반화 가능성을 확인했다.
+
 ## Dataset
 
 Raw data is not included.
